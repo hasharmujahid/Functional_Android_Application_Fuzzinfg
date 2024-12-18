@@ -1,7 +1,7 @@
 # helper file of droidbot
 # it parses command arguments and send the options to droidbot
 import argparse
-import resource
+#import resource
 import sys
 from subprocess import run, DEVNULL
 
@@ -310,9 +310,9 @@ def main(opts):
     return
 
 
-def memory_limit(memory: int):
-    _, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (memory * 1024 * 1024, hard))
+# def memory_limit(memory: int):
+#     _, hard = resource.getrlimit(resource.RLIMIT_AS)
+#     resource.setrlimit(resource.RLIMIT_AS, (memory * 1024 * 1024, hard))
 
 
 if __name__ == "__main__":
@@ -324,7 +324,9 @@ if __name__ == "__main__":
     opts = ap.parse_args()
 
     if opts.memory > 0:
-        memory_limit(opts.memory)
+        #memory_limit(opts.memory)
+
+        pass
 
     try:
         main(opts)
